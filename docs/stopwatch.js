@@ -11,7 +11,7 @@ new Vue({
   methods: {
     // 現在時刻から引数に渡した数値を startTime に代入
     setSubtractStartTime: function (time) {
-      var time = time === undefined ? 0 : time;
+      var time = typeof time !== 'undefined' ? time : 0;
       this.startTime = Math.floor(performance.now() - time);
     },
     // タイマーをスタートさせる
@@ -73,7 +73,7 @@ new Vue({
     // ゼロ埋めフィルタ 引数に桁数を入力する
     // ※ String.prototype.padStart() は IEじゃ使えない
     zeroPad: function(value, num){
-      var num = num === undefined ? 2 : num;
+      var num = typeof num !== 'undefined' ? num : 2;
       return value.toString().padStart(num,"0");
     }
   }
